@@ -190,6 +190,7 @@ const HTML = `
                     lastSize = d.length;
                 }
                 box.innerHTML = d.map(function(line) {
+				var scrollPos = box.scrollTop;
                     var tm = line.match(/\[(.*?)\]/);
                     var um = line.match(/@(.*?) ->/);
                     if (!tm || !um) return '';
@@ -197,6 +198,7 @@ const HTML = `
                     var cls = status.includes('AVAILABLE') ? 'status-avail' : (status.includes('Change IP') ? 'status-warn' : '');
                     return '<div class="log-entry"><span style="color:#6b7280">' + tm[1] + '</span><div class="v-divider"></div><span class="log-user">@' + um[1] + '</span><div class="v-divider"></div><span class="' + cls + '">' + status + '</span></div>';
                 }).join('');
+				box.scrollTop = scrollPos;
             }).catch(function() {});
         }, 1000);
     </script>
