@@ -203,7 +203,7 @@ app.get("/", (req: Request, res: Response) => {
                                         <span class="\${sClass}">\${status}</span>
                                     </div>\`;
                                 }).join('');
-                                box.scrollTop = box.scrollHeight;
+                                
                             }
                         } catch(e) {}
                     }, 1000);
